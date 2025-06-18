@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport RSE - Partenariats & Vie Locale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-100">
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- En-tête -->
+        <header class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <i data-lucide="heart-handshake" class="h-10 w-10 text-rose-600 mr-4"></i>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 text-center">Implication dans la Vie Locale</h1>
+            </div>
+            <p class="text-center text-xl text-gray-600">Analyse des Dons & Partenariats 2022-2024</p>
+        </header>
+
+        <!-- Indicateurs Clés (KPIs) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <i data-lucide="file-check-2" class="h-8 w-8 text-blue-500 mx-auto mb-3"></i>
+                <h3 class="text-sm font-semibold text-gray-600 mb-2 uppercase">Nombre d'Actions en 2024</h3>
+                <p class="text-3xl font-bold text-blue-600">19</p>
+                <p class="text-sm font-semibold text-green-600">+58% vs 2023</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <i data-lucide="percent-circle" class="h-8 w-8 text-teal-500 mx-auto mb-3"></i>
+                <h3 class="text-sm font-semibold text-gray-600 mb-2 uppercase">Effort Relatif en 2024</h3>
+                <p class="text-3xl font-bold text-teal-600">0,40%</p>
+                <p class="text-sm text-gray-500">du CA dédié aux dons</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <i data-lucide="coins" class="h-8 w-8 text-amber-500 mx-auto mb-3"></i>
+                <h3 class="text-sm font-semibold text-gray-600 mb-2 uppercase">Montant Investi en 2024</h3>
+                <p class="text-3xl font-bold text-amber-600">9 476 €</p>
+                <p class="text-sm text-gray-500">Soutien à 19 associations</p>
+            </div>
+        </section>
+
+        <!-- Section Graphiques -->
+        <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Évolution de notre Engagement Local</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-center">Évolution du Montant Annuel Investi (€)</h3>
+                    <!-- MODIFICATION ICI : Ajout d'un conteneur avec une hauteur définie -->
+                    <div class="relative h-80">
+                        <canvas id="montantDonsChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-center">Évolution du Nombre d'Actions Annuelles</h3>
+                    <!-- MODIFICATION ICI : Ajout d'un conteneur avec une hauteur définie -->
+                    <div class="relative h-80">
+                        <canvas id="nombreActionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                 <h3 class="text-lg font-semibold mb-4 text-center">Répartition des Partenariats en 2024</h3>
+                 <!-- MODIFICATION ICI : Ajout d'un conteneur avec une hauteur définie -->
+                 <div class="relative h-80">
+                    <canvas id="repartitionChart"></canvas>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Section Analyse & Stratégie -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Analyse & Stratégie d'Implication</h2>
+            <div class="space-y-4">
+                <div class="flex items-start p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                    <i data-lucide="trending-up" class="h-6 w-6 text-green-700 mr-4 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h5 class="font-bold text-green-800">Une Présence Locale en Forte Croissance</h5>
+                        <p class="text-gray-700">Notre engagement se manifeste par une augmentation constante du nombre d'initiatives soutenues, passant de 4 en 2022 à **19 en 2024 (+375%)**. L'année 2024 marque une accélération notable avec **+58% d'actions par rapport à 2023**, témoignant de notre volonté de renforcer notre ancrage territorial.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-teal-50 rounded-lg border-l-4 border-teal-500">
+                    <i data-lucide="shield-check" class="h-6 w-6 text-teal-700 mr-4 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h5 class="font-bold text-teal-800">Un Engagement Résilient et Renforcé</h5>
+                        <p class="text-gray-700">Malgré un contexte économique exigeant (baisse du CA), notre effort en faveur de la vie locale s'est maintenu à un niveau élevé. La part de notre chiffre d'affaires dédiée aux dons en 2024 (**0,40%**) reste **nettement supérieure à celle de 2022 (0,33%)**. Cela démontre une consolidation de notre politique de mécénat et un engagement durable.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <i data-lucide="puzzle" class="h-6 w-6 text-blue-700 mr-4 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h5 class="font-bold text-blue-800">Une Stratégie de Soutien Élargie et Agile</h5>
+                        <p class="text-gray-700">En 2024, nous avons fait le choix stratégique de **soutenir un plus grand nombre de partenaires**. Cette approche nous permet de toucher un éventail plus large d'acteurs locaux dans des domaines variés : **la vie locale et culturelle (37%), l'éducation (26%), le social (26%) et le sport (11%)**.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        Chart.register(ChartDataLabels);
+        
+        const years = ['2022', '2023', '2024'];
+        const chartData = {
+            montants: [9648, 13788, 9476],
+            actions: [4, 12, 19],
+            repartition2024: {
+                labels: ['Vie Locale & Culture', 'Éducation & Enfance', 'Social & Solidarité', 'Sport'],
+                data: [7, 5, 5, 2]
+            }
+        };
+
+        // Configuration commune pour les graphiques en barres
+        const barChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    color: '#4A5568',
+                    font: { weight: 'bold' },
+                    formatter: (value) => value.toLocaleString('fr-FR', {maximumFractionDigits:0})
+                }
+            },
+            scales: {
+                y: { 
+                    beginAtZero: true,
+                }
+            },
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Graphique Montants
+            const montantCtx = document.getElementById('montantDonsChart').getContext('2d');
+            new Chart(montantCtx, {
+                type: 'bar',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Montant Investi (€)',
+                        data: chartData.montants,
+                        backgroundColor: '#f59e0b'
+                    }]
+                },
+                options: {
+                    ...barChartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 15000, // Garde de l'espace en haut
+                            ticks: { callback: (value) => value.toLocaleString('fr-FR') + ' €' }
+                        }
+                    }
+                }
+            });
+
+            // Graphique Actions
+            const actionsCtx = document.getElementById('nombreActionsChart').getContext('2d');
+            new Chart(actionsCtx, {
+                type: 'bar',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Nombre d\'Actions',
+                        data: chartData.actions,
+                        backgroundColor: '#0ea5e9'
+                    }]
+                },
+                options: {
+                    ...barChartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 20, // Garde de l'espace en haut
+                            ticks: { stepSize: 2 }
+                        }
+                    }
+                }
+            });
+            
+            // Graphique Répartition
+            const repartitionCtx = document.getElementById('repartitionChart').getContext('2d');
+            new Chart(repartitionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: chartData.repartition2024.labels,
+                    datasets: [{
+                        label: 'Répartition des Partenariats 2024',
+                        data: chartData.repartition2024.data,
+                        backgroundColor: ['#f97316', '#3b82f6', '#ef4444', '#16a34a'],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' },
+                        datalabels: {
+                            color: 'white',
+                            font: { weight: 'bold' },
+                            formatter: (value, context) => {
+                                const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                const percentage = (value / total * 100).toFixed(0) + '%';
+                                return percentage;
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
